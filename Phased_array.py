@@ -27,10 +27,6 @@ for i in range(x_steps):
                 +y[k]**2))-2*np.pi*1j/wave*(np.sqrt((p*d)**2+F**2)-F+ \
                 noise*random.random()*(np.sqrt((p*d)**2+F**2)-F)))/\
                 ((x[i]-p*d)**2+y[k]**2)**0.25
-            #E_linear[k,i] += np.exp(2*np.pi*1j/wave*(np.sqrt((x[i]-p*d)**2\
-            #    +y[k]**2)-0*p*d*np.sin(np.pi/6)))/\
-            #    ((x[i]-p*d)**2+y[k]**2)**0.25
-
 
 
 
@@ -51,7 +47,7 @@ for i in range(100):
         E_2[i,j] = f(np.sqrt(y_1[i]**2+y_2[j]**2))
 
 
-print(max(E_focus))
+
 plt.figure(1)
 plt.imshow(E_field[1:]**2,cmap='Purples',aspect='auto',origin = 'lower',extent=(0,10,0,10))
 plt.ylabel('z [$\mu$m]')
@@ -64,6 +60,4 @@ plt.title('$\lambda$ = 680 nm')
 plt.ylabel('y [$\mu$m]')
 plt.xlabel('x [$\mu$m]')
 plt.imshow((E_2/np.amax(E_2))**2,cmap='Reds',extent=(0,2,0,2))
-#plt.figure(4)
-#plt.imshow(E_linear[1:]**2,aspect='auto',origin='lower')
 plt.show()
